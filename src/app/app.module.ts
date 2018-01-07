@@ -22,6 +22,7 @@ import { DevModuleModule } from './+dev-module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { FinanceChartComponent } from 'app/finance-chart/finance.chart.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -45,7 +46,8 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    FinanceChartComponent
   ],
   /**
    * Import Angular's modules.
