@@ -22,7 +22,7 @@ import { DevModuleModule } from './+dev-module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { FinanceChartComponent } from 'app/finance-chart/finance.chart.component';
+import { FinanceChartModule } from 'app/finance-chart';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -46,9 +46,8 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective,
-    FinanceChartComponent
-  ],
+    XLargeDirective
+    ],
   /**
    * Import Angular's modules.
    */
@@ -57,6 +56,7 @@ type StoreType = {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    FinanceChartModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
@@ -75,6 +75,6 @@ type StoreType = {
   providers: [
     environment.ENV_PROVIDERS,
     APP_PROVIDERS
-  ]
+    ]
 })
 export class AppModule {}
