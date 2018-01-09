@@ -5,7 +5,7 @@ import {
 import { FinanceChartService } from 'app/finance-chart/finance-chart.service';
 
 @Component({
-    selector: 'finance-chart',
+    selector: 'ff-finance-chart',
     templateUrl: './finance-chart.component.html',
     styleUrls: ['./finance-chart.component.scss']
 })
