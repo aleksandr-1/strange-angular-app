@@ -20,6 +20,7 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { FinanceChartModule } from 'app/finance-chart';
 import { NavigationMenuComponent } from 'app/navigation-menu/navigation-menu.component';
+import { HomePageComponent } from 'app/home/home-page.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,7 +42,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     NavigationMenuComponent,
-    NoContentComponent
+    NoContentComponent,
+    HomePageComponent
   ],
   /**
    * Import Angular's modules.
