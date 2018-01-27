@@ -11,11 +11,10 @@
     "interface-name": [false, "always-prefix"],
     // Angular 2
     "component-class-suffix": true,
-    // "component-selector": [true, "element", "my", "kebab-case"],
     "directive-class-suffix": true,
-    // "directive-selector": [true, "attribute", "my", "camelCase"],
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
+    "member-access": [false],
     "no-access-missing-member": true,
     "no-attribute-parameter-decorator": true,
     "no-forward-ref": true,
