@@ -10,6 +10,7 @@
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "interface-name": [false, "always-prefix"],
     // Angular 2
+    "arrow-parens": [true, "ban-single-arg-parens"],
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "import-destructuring-spacing": true,
