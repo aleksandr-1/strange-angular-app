@@ -1,4 +1,4 @@
-export class ItemCost {
+export class CostDataItem {
     public value: number;
     public currency: string;
     public item: string;
