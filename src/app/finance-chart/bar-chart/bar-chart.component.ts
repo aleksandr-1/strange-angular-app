@@ -3,7 +3,7 @@ import {
     ElementRef, Input, ViewEncapsulation
 } from '@angular/core';
 import * as d3 from 'd3';
-import { ItemCost } from 'app/finance-chart/model/ItemCost';
+import { CostDataItem } from '../model/CostDataItem';
 
 @Component({
     selector: 'ff-bar-chart',
@@ -14,7 +14,7 @@ import { ItemCost } from 'app/finance-chart/model/ItemCost';
 export class BarChartComponent implements OnInit, OnChanges {
     @ViewChild('chart') private chartContainer: ElementRef;
 
-    @Input() private data: ItemCost[];
+    @Input() private data: CostDataItem[];
     private margin: any = { top: 20, bottom: 20, left: 20, right: 20 };
     private chart: any;
     private width: number;
@@ -67,7 +67,7 @@ export class BarChartComponent implements OnInit, OnChanges {
         // bar colors
         this.colors = d3.scaleLinear()
             .domain([0, this.data.length])
-            .range(<any[]> ['red', 'blue']);
+            .range(<any[]> ['blue', 'blue']);
 
         // x & y axis
         this.xAxis = svg.append('g')

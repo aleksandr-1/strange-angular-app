@@ -7,9 +7,9 @@ import { FinanceChartService } from 'app/finance-chart/finance-chart.service';
 import * as d3 from 'd3';
 import { type } from 'os';
 import { Subject } from 'rxjs/Subject';
-import { ItemCost } from 'app/finance-chart/model/ItemCost';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { CostDataItem } from './model/CostDataItem';
 
 @Component({
     selector: 'ff-finance-chart',
@@ -19,10 +19,10 @@ import 'rxjs/add/observable/of';
 })
 export class FinanceChartComponent implements OnInit {
 
-    barChartObservable: Observable<ItemCost[]>;
+    barChartObservable: Observable<CostDataItem[]>;
     public value: any;
 
-    private barChartData: ItemCost[];
+    private barChartData: CostDataItem[];
 
     constructor(private financeChartService: FinanceChartService) { }
 
@@ -38,10 +38,10 @@ export class FinanceChartComponent implements OnInit {
     }
 
     createBarChartData() {
-        let barChartData: ItemCost[] = [];
+        let barChartData: CostDataItem[] = [];
 
         for (let i = 0; i < 12; i++) {
-            let item = new ItemCost();
+            let item = new CostDataItem();
             item.date = `Month ${i + 1}`;
             item.value = Math.floor(Math.random() * 100);
             barChartData.push(item);
