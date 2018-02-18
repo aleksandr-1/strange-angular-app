@@ -22,9 +22,11 @@ export class FinanceChartComponent implements OnInit {
     barChartObservable: Observable<CostDataItem[]>;
     public value: any;
 
-    private barChartData: CostDataItem[];
+    barChartData: Observable<CostDataItem[]>;
+    lineChartData: Observable<CostDataItem[]>;
 
-    constructor(private financeChartService: FinanceChartService) { }
+    constructor(private financeChartService: FinanceChartService) {
+    }
 
     ngOnInit(): void {
         this.financeChartService
@@ -34,18 +36,7 @@ export class FinanceChartComponent implements OnInit {
                 console.log('val: ', val);
             });
 
-        this.createBarChartData();
-    }
-
-    createBarChartData() {
-        let barChartData: CostDataItem[] = [];
-
-        for (let i = 0; i < 12; i++) {
-            let item = new CostDataItem();
-            item.date = `Month ${i + 1}`;
-            item.value = Math.floor(Math.random() * 100);
-            barChartData.push(item);
-        }
-        this.barChartObservable = Observable.of(barChartData);
+        this.barChartData = this.financeChartService.createRandomChartData();
+        this.lineChartData = this.financeChartService.createLineChartData();
     }
 }
