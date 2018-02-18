@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { CostDataItem } from '../model/CostDataItem';
+import { LineChartData } from './line-chart-data.model';
 
 @Component({
     selector: 'ff-line-chart',
@@ -9,8 +10,8 @@ import { CostDataItem } from '../model/CostDataItem';
     encapsulation: ViewEncapsulation.None
 })
 export class LineChartComponent implements OnInit {
+    @Input() chartData: CostDataItem[];
     @ViewChild('lineChart') private chartContainer: ElementRef;
-    @Input() private chartData: CostDataItem[];
 
     private margin = { top: 20, right: 20, bottom: 30, left: 50 };
 
@@ -45,19 +46,10 @@ export class LineChartComponent implements OnInit {
             .append('g')
             .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
-        let data: any[] = [
-            { date: '1-May-12', close: 58 },
-            { date: '30-Apr-12', close: 53 },
-            { date: '27-Apr-12', close: 67 },
-            { date: '2-Apr-12', close: 618.63 },
-            { date: '30-Mar-12', close: 599.55 },
-            { date: '29-Mar-12', close: 609.86 }
-        ];
-
-        let chartData: LineChartData[] = data.map(d => {
+        let chartData: LineChartData[] = this.chartData.map(d => {
             let item = new LineChartData();
-            item.date = this.parseTime(d.date);
-            item.value = +d.close;
+            item.date = this.parseTime(d.date.toString());
+            item.value = +d.value;
             return item;
         });
 
@@ -82,9 +74,4 @@ export class LineChartComponent implements OnInit {
         svg.append('g')
             .call(d3.axisLeft(this.yScale));
     }
-}
-
-export class LineChartData {
-    date: Date;
-    value: number;
 }

@@ -8,7 +8,7 @@ import { LineChartComponent } from 'app/finance-chart/line-chart/line-chart.comp
 
 @NgModule({
     imports: [
-        CommonModule,
+        CommonModule
     ],
     declarations: [
         FinanceChartComponent,

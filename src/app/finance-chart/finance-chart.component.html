@@ -4,6 +4,6 @@
     {{value}}
 </div>
 
-<ff-bar-chart [data]="barChartObservable | async"></ff-bar-chart>
+<ff-bar-chart [data]="barChartData | async"></ff-bar-chart>
 
-<ff-line-chart></ff-line-chart>
+<ff-line-chart [chartData]="lineChartData | async"></ff-line-chart>
