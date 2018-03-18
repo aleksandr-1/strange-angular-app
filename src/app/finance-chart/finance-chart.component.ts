@@ -23,7 +23,7 @@ export class FinanceChartComponent implements OnInit {
     public value: any;
 
     barChartData: Observable<CostDataItem[]>;
-    lineChartData: Observable<CostDataItem[]>;
+    lineChartData: Observable<Array<CostDataItem[]>>;
 
     constructor(private financeChartService: FinanceChartService) {
     }

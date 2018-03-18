@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild, Input, OnInit, ViewEncapsulation } fr
 import * as d3 from 'd3';
 import { CostDataItem } from '../model/CostDataItem';
 import { LineChartData } from './line-chart-data.model';
+import { LineChartConfig } from './line-chart-config-model';
+import { ChartDataItem } from '../model/ChartDataItem';
 
 @Component({
     selector: 'ff-line-chart',
@@ -10,7 +12,8 @@ import { LineChartData } from './line-chart-data.model';
     encapsulation: ViewEncapsulation.None
 })
 export class LineChartComponent implements OnInit {
-    @Input() chartData: CostDataItem[];
+    @Input() chartData: Array<ChartDataItem[]>;
+    @Input() chartConfig: LineChartConfig;
     @ViewChild('lineChart') private chartContainer: ElementRef;
 
     private margin = { top: 20, right: 20, bottom: 30, left: 50 };
@@ -25,7 +28,7 @@ export class LineChartComponent implements OnInit {
 
     private valueLine: any;
 
-    private parseTime: (dateStr: string) => Date = d3.timeParse('%d-%b-%y');
+    private parseTime: (dateStr: string) => Date = d3.timeParse('%d/%m/%Y');
 
     ngOnInit(): void {
         this.createChart();
@@ -46,7 +49,7 @@ export class LineChartComponent implements OnInit {
             .append('g')
             .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
-        let chartData: LineChartData[] = this.chartData.map(d => {
+        let chartData: LineChartData[] = this.chartData[0].map(d => {
             let item = new LineChartData();
             item.date = this.parseTime(d.date.toString());
             item.value = +d.value;

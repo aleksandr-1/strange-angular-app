@@ -14,15 +14,19 @@ export class FinanceChartService {
     return this.http.get('/assets/data.json');
   }
 
-  createLineChartData(): Observable<CostDataItem[]> {
-    return Observable.of(<CostDataItem[]>[
-      { date: '1-May-12', value: 58 },
-      { date: '30-Apr-12', value: 53 },
-      { date: '27-Apr-12', value: 67 },
-      { date: '2-Apr-12', value: 618.63 },
-      { date: '30-Mar-12', value: 599.55 },
-      { date: '29-Mar-12', value: 609.86 }
-    ]);
+  createLineChartData(): Observable<CostDataItem[][]> {
+    return Observable.of([<CostDataItem[]>[
+      { date: '04/01/2018', value: 2197 },
+      { date: '20/01/2018', value: 1620 },
+      { date: '07/02/2018', value: 1925.70 },
+      { date: '20/02/2018', value: 1620 },
+      { date: '07/03/2018', value: 2113.92 },
+      { date: '20/03/2018', value: 1620 }
+    ],
+    <CostDataItem[]>[
+      { date: '04/01/2018', value: 1500 },
+      { date: '20/01/2018', value: 1200 },
+    ]]);
   }
 
   createRandomChartData(): Observable<CostDataItem[]> {
