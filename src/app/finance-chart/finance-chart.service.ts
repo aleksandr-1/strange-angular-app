@@ -24,8 +24,11 @@ export class FinanceChartService {
       { date: '20/03/2018', value: 1620 }
     ],
     <CostDataItem[]>[
-      { date: '04/01/2018', value: 1500 },
-      { date: '20/01/2018', value: 1200 },
+      { date: '10/01/2018', value: 1500 },
+      { date: '30/01/2018', value: 3012 },
+      { date: '10/02/2018', value: 1200 },
+      { date: '10/04/2018', value: 1500 },
+      { date: '15/02/2018', value: 1600 },
     ]]);
   }
 
