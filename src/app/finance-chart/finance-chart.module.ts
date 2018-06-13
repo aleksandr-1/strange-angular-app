@@ -5,6 +5,7 @@ import { FinanceChartComponent } from 'app/finance-chart/finance-chart.component
 import { FinanceChartService } from 'app/finance-chart/finance-chart.service';
 import { BarChartComponent } from 'app/finance-chart/bar-chart/bar-chart.component';
 import { LineChartComponent } from 'app/finance-chart/line-chart/line-chart.component';
+import { CombinedChartComponent } from './combined-chart/combined-chart.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { LineChartComponent } from 'app/finance-chart/line-chart/line-chart.comp
     declarations: [
         FinanceChartComponent,
         BarChartComponent,
-        LineChartComponent
+        LineChartComponent,
+        CombinedChartComponent
     ],
     providers: [
         FinanceChartService
